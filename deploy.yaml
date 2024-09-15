@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deploy
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: mypod
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: prtcontainer
+          image: danisheikh/prtproject
+  selector:
+    matchLabels:
+      tier: frontend
+
